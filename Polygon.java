@@ -30,9 +30,11 @@ public class Polygon {
     //overloaded constructor
 
     /**
-     * @description Creates a Polygon object with specified side number, side length, and shape type. If the
-     *      * parameters are not greater than 0, they are set to the default parameters. If a polygon has more than one side and has a positive side length, it is considered valid.
-     *      If it has 1 side or less or has a side length of 0 or less, it is considered invalid. Otherwise, the polygon defaults to a triangle with 1 side.
+     * @description Creates a Polygon object with specified side number, side length, and shape type.
+     * If a polygon has more than one side and has a positive side length, it is considered valid.
+     * If it has 1 side or less or has a side length of 0 or less, it is considered invalid.
+     * Otherwise, the polygon defaults to a triangle with 3 sides (3 sided, 1.0 length, "triangle").
+     *
      * @param s number of sides in the Polygon
      * @param sl length of each side in the Polygon
      * @param st type of Polygon shape
