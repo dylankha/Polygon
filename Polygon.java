@@ -6,20 +6,19 @@ import java.text.DecimalFormat;
  * @author Dylan Nguyen
  *
  * @description Creates a polygon with a side number, side length, and shape type, which the user can access and
- * print.
+ * print. Also creates a boolean variable called "isValid" that identifies whether a generated Polygon is a valid polygon.
  */
 public class Polygon {
      //instance variables
     private int numSides;
     private double sideLength;
     private String shapeType;
-
+    private boolean isValid;
     //default constructor
 
     /**
-     * @description Default constructor that creates a basic triangle with a side length of 1.0
+     * @description Default constructor that creates a basic triangle (a three sided polygon) with a side length of 1.0
      */
-    boolean isValid;
     public Polygon(){
         numSides = 3;
         sideLength = 1.0;
@@ -32,7 +31,8 @@ public class Polygon {
 
     /**
      * @description Creates a Polygon object with specified side number, side length, and shape type. If the
-     *      * parameters are not greater than 0, they are set to the default parameters.
+     *      * parameters are not greater than 0, they are set to the default parameters. If a polygon has more than one side and has a positive side length, it is considered valid.
+     *      If it has 1 side or less or has a side length of 0 or less, it is considered invalid. Otherwise, the polygon defaults to a triangle with 1 side.
      * @param s number of sides in the Polygon
      * @param sl length of each side in the Polygon
      * @param st type of Polygon shape
@@ -82,10 +82,17 @@ public class Polygon {
         }
 
     //toString method
+
+    /**
+     *
+     * @return a string that contains the shape type and number of
+     * sides if the polygon is valid, or the default polygon if the polygon was invalid.
+     */
     public String toString(){
         DecimalFormat df = new DecimalFormat("#.##"); //displays a number with 2 decimal places
         if (isValid){
-            return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides.";
+            return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides." + "\n" +
+                    "It has a side length of " + getSideLength();
         }
         else{
             return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", and each side has a length of 1.0 units.";
