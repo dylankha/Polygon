@@ -69,7 +69,7 @@ public class Polygon {
 
     /**
      *
-      * @return the length of each side of the polygon
+     * @return the length of each side of the polygon
      */
     public double getSideLength(){
             return sideLength;
@@ -77,11 +77,23 @@ public class Polygon {
 
     /**
      *
-      * @return a string indicating the type of polygon
+     * @return a string indicating the type of polygon
      */
     public String getShapeType(){
             return shapeType;
         }
+
+    //calculate methods
+
+    /**
+     *
+     * @return the perimeter of the polygon by multiplying the number of sides by the length of each side,
+     * outputting a double value.
+     */
+    public double calculatePerimeter(){
+        return numSides * sideLength;
+    }
+
 
     //toString method
 
@@ -94,7 +106,8 @@ public class Polygon {
         DecimalFormat df = new DecimalFormat("#.##"); //displays a number with 2 decimal places
         if (isValid){
             return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides." + "\n" +
-                    "It has a side length of " + getSideLength();
+                    "It has a side length of " + getSideLength() + "\n" +
+                    "It has a perimeter of " + calculatePerimeter();
         }
         else{
             return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", and each side has a length of 1.0 units.";
