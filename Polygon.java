@@ -134,12 +134,12 @@ public class Polygon {
      * sides if the polygon is valid, or the default polygon if the polygon was invalid.
      */
     public String toString(){
-        DecimalFormat df = new DecimalFormat("#.##"); //displays a number with 2 decimal places
+        DecimalFormat df = new DecimalFormat("#.###"); //displays a number with 2 decimal places
         if (isValid){
             return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides." + "\n" +
-                    "It has a side length of " + getSideLength() + "\n" +
-                    "It has a perimeter of " + calculatePerimeter() + "\n" +
-                    "It has an area of " + calculateArea();
+                    "It has a side length of " + df.format(getSideLength()) + "\n" +
+                    "It has a perimeter of " + df.format(calculatePerimeter()) + "\n" +
+                    "It has an area of " + df.format(calculateArea());
         }
         else{
             return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", and each side has a length of 1.0 units.";
