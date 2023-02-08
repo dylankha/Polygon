@@ -120,6 +120,10 @@ public class Polygon {
         return numSides * sideLength;
     }
 
+    public double calculateArea(){
+        return (((sideLength * sideLength) * numSides) / (4* Math.tan(180/numSides)));
+    }
+
 
     //toString method
 
