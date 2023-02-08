@@ -42,14 +42,14 @@ public class Polygon {
      */
     public Polygon (int s, double sl, String st){
 
-        if (s > 1 && sl > 0){
+        if (s > 1 && sl > 0){ //if a polygon has more than 1 side AND has a side length greater than 0,
             numSides = s;
             sideLength =sl;
             shapeType = st;
             isValid = true;
         }
 
-        if (s <= 1 || sl <= 0){
+        if (s <= 1 || sl <= 0){ //if a polygon has 1 or fewer sides OR has a side length 0 or less
             numSides = 3;
             sideLength = 3.0;
             shapeType = "triangle";
@@ -134,10 +134,11 @@ public class Polygon {
     /**
      *
      * @return a string that contains the shape type and number of
-     * sides if the polygon is valid, or the default polygon if the polygon was invalid.
+     * sides if the polygon is valid, or the default polygon if the polygon was invalid. Numbers are formatted
+     * to display in three decimals.
      */
     public String toString(){
-        DecimalFormat df = new DecimalFormat("#.###"); //displays a number with 2 decimal places
+        DecimalFormat df = new DecimalFormat("#.###"); //displays a number with 3 decimal places
         if (isValid){
             return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides." + "\n" +
                     "It has a side length of " + df.format(getSideLength()) + "\n" +
