@@ -11,5 +11,6 @@ public class PolygonTester {
         System.out.println("\nThis is an example output for an invalid polygon.");
         Polygon poly3 = new Polygon(1,785,"line");
         System.out.println(poly3);
+
     }
 }
