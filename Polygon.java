@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.lang.Math;
 
 /**
  * @file Polygon.java
@@ -121,7 +122,7 @@ public class Polygon {
     }
 
     public double calculateArea(){
-        return (((sideLength * sideLength) * numSides) / (4* Math.tan(180/numSides)));
+        return (((sideLength * sideLength) * numSides) / (4* Math.tan(Math.toRadians(180/numSides))));
     }
 
 
@@ -137,7 +138,8 @@ public class Polygon {
         if (isValid){
             return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides." + "\n" +
                     "It has a side length of " + getSideLength() + "\n" +
-                    "It has a perimeter of " + calculatePerimeter();
+                    "It has a perimeter of " + calculatePerimeter() + "\n" +
+                    "It has an area of " + calculateArea();
         }
         else{
             return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", and each side has a length of 1.0 units.";
