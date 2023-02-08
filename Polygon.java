@@ -31,9 +31,10 @@ public class Polygon {
 
     /**
      * @description Creates a Polygon object with specified side number, side length, and shape type.
-     * If a polygon has more than one side and has a positive side length, it is considered valid.
-     * If it has 1 side or less or has a side length of 0 or less, it is considered invalid.
-     * Otherwise, the polygon defaults to a triangle with 3 sides (3 sided, 1.0 length, "triangle").
+     * If a polygon has more than one side AND has a positive side length, it is considered valid.
+     *
+     * If it has 1 side or less OR has a side length of 0 or less, it is considered invalid and is assigned the default
+     * values for a triangle with 3 sides (3 sided, 1.0 length, "triangle").
      *
      * @param s number of sides in the Polygon
      * @param sl length of each side in the Polygon
@@ -48,7 +49,7 @@ public class Polygon {
             isValid = true;
         }
 
-        if (s <= 1 && sl <= 0){
+        if (s <= 1 || sl <= 0){
             numSides = 3;
             sideLength = 3.0;
             shapeType = "triangle";
@@ -82,6 +83,31 @@ public class Polygon {
     public String getShapeType(){
             return shapeType;
         }
+
+    //mutators
+    /**
+     * @description allows the user to change the number of sides of the polygon.
+     * @param newNumSides
+     */
+    public void setNumSides(int newNumSides){
+        numSides = newNumSides;
+    }
+
+    /**
+     * @description allows the user to change the name of the shape of the polygon.
+     * @param newShapeType
+     */
+    public void setShapeName(String newShapeType){
+        shapeType = newShapeType;
+    }
+
+    /**
+     * @description allows the user to change the length of the sides of the polygon.
+     * @param newSideLength
+     */
+    public void setSideLength(double newSideLength){
+        sideLength = newSideLength;
+    }
 
     //calculate methods
 
