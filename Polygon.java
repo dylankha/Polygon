@@ -14,6 +14,7 @@ public class Polygon {
     private double sideLength;
     private String shapeType;
     private boolean isValid;
+    private boolean becomesInValid;
     //default constructor
 
     /**
@@ -107,6 +108,7 @@ public class Polygon {
     public void setNumSides(int newNumSides){
         if (newNumSides < 1){
             numSides = numSides;
+            becomesInValid = true;
         }
         else{
             numSides = newNumSides;
@@ -128,6 +130,8 @@ public class Polygon {
     public void setSideLength(double newSideLength){
         if (sideLength < 0){
             sideLength = sideLength;
+            becomesInValid = true;
+
         }
         else{
             sideLength = newSideLength;
@@ -166,12 +170,13 @@ public class Polygon {
      */
     public String toString(){
         DecimalFormat df = new DecimalFormat("#.###"); //displays a number with 3 decimal places
-        if (isValid){
+        if (isValid || becomesInValid){
             return "Your shape is a " + getShapeType() + " and it has " + getNumSides() + " sides." + "\n" +
                     "It has a side length of " + df.format(getSideLength()) + "\n" +
                     "It has a perimeter of " + df.format(calculatePerimeter()) + "\n" +
                     "It has an area of " + df.format(calculateArea());
         }
+
         else{
             return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", " + "and each side has a length of 1.0 units";
         }

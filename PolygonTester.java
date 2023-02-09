@@ -54,6 +54,7 @@ public class PolygonTester {
         System.out.println(poly3.getSideLength() == 2.4738);
         System.out.println(poly3.calculatePerimeter() == 9.895);
         System.out.println(poly3.getArea() == 6.120);
+        System.out.println(poly3);
 
         System.out.println("\n I'm now changing the shape to be invalid with -12 sides. Nothing else should change");
         poly3.setNumSides(-12);
