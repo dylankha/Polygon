@@ -22,7 +22,7 @@ public class Polygon {
     public Polygon(){
         numSides = 3;
         sideLength = 1.0;
-        shapeType = "triangle";
+        shapeType = "Triangle";
         isValid = true;
 
     }
@@ -51,8 +51,8 @@ public class Polygon {
 
         if (s <= 1 || sl <= 0){ //if a polygon has 1 or fewer sides OR has a side length 0 or less
             numSides = 3;
-            sideLength = 3.0;
-            shapeType = "triangle";
+            sideLength = 1.0;
+            shapeType = "Triangle";
             isValid = false;
         }
 
@@ -84,13 +84,33 @@ public class Polygon {
             return shapeType;
         }
 
+    /**
+     *
+     * @return the area of the polygon
+     */
+    public double getArea(){
+        return calculateArea();
+    }
+
+    /**
+     *
+     * @return the perimeter of the polygon
+     */
+    public double getPerimeter(){
+        return calculatePerimeter();
+    }
     //mutators
     /**
-     * @description allows the user to change the number of sides of the polygon.
+     * @description allows the user to change the number of sides of the polygon, taking in integers over 1.
      * @param newNumSides
      */
     public void setNumSides(int newNumSides){
-        numSides = newNumSides;
+        if (newNumSides < 1){
+            numSides = numSides;
+        }
+        else{
+            numSides = newNumSides;
+        }
     }
 
     /**
@@ -106,7 +126,12 @@ public class Polygon {
      * @param newSideLength
      */
     public void setSideLength(double newSideLength){
-        sideLength = newSideLength;
+        if (sideLength < 0){
+            sideLength = sideLength;
+        }
+        else{
+            sideLength = newSideLength;
+        }
     }
 
     //calculate methods
@@ -117,7 +142,8 @@ public class Polygon {
      * outputting a double value.
      */
     public double calculatePerimeter(){
-        return numSides * sideLength;
+        double perimeter = numSides * sideLength;
+        return Math.round(perimeter*1000) / 1000.0;
     }
 
     /**
@@ -125,7 +151,8 @@ public class Polygon {
      * @return the area of a polygon given its side length and number of sides.
      */
     public double calculateArea(){
-        return (((sideLength * sideLength) * numSides) / (4* Math.tan(Math.toRadians(180/numSides))));
+        double area = (((sideLength * sideLength) * numSides) / (4* Math.tan(Math.toRadians(180/numSides))));
+        return Math.round(area*1000) /1000.0;
     }
 
 
@@ -146,7 +173,7 @@ public class Polygon {
                     "It has an area of " + df.format(calculateArea());
         }
         else{
-            return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", and each side has a length of 1.0 units.";
+            return "Not a valid polygon. Your polygon was given a default of 3 sides , was named \"triangle\", " + "and each side has a length of 1.0 units";
         }
 
     }
